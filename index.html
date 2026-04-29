@@ -648,7 +648,7 @@
         <div class="hr"></div>
         <div class="lede" style="font-style:normal; font-size:36px; color: var(--ink-2); max-width: 1300px;">
           An empirical study of LLM-only versus RAG question answering on Qwen 3.5 9B,
-          evaluated on 811 CRAG validation samples.
+          evaluated on 1,335  CRAG validation samples.
         </div>
       </div>
 
@@ -863,7 +863,7 @@
 
       <div style="margin-top: 64px; display:flex; justify-content: space-between; align-items: baseline;">
         <div class="lede" style="font-size:36px; max-width: 1100px;">
-          We use the <strong>811-sample validation split</strong>, which preserves all three axes.
+          We use the <strong>1,335 -sample validation split</strong>, which preserves all three axes.
         </div>
         <div class="small" style="font-family: var(--mono);">huggingface.co/datasets/Quivr/CRAG</div>
       </div>
@@ -930,7 +930,7 @@
             Find where retrieval helps — and where it does not.
           </div>
           <p class="body" style="font-size: 26px; color: var(--muted);">
-            Slice the 811 results by domain, dynamism, and question type.
+            Slice the 1,335  results by domain, dynamism, and question type.
           </p>
         </div>
       </div>
@@ -1003,7 +1003,7 @@
 
           <div class="eyebrow" style="margin: 12px 0 12px;">Dataset</div>
           <p class="body" style="font-size: 26px;">
-            CRAG validation split — <strong>811 samples</strong> covering all five domains, all eight question types,
+            CRAG validation split — <strong>1,335  samples</strong> covering all five domains, all eight question types,
             all four dynamism levels.
           </p>
         </div>
@@ -1042,7 +1042,7 @@
               <div class="n">01</div>
               <div class="t">
                 <div class="head" style="font-size:30px;">Read CRAG question</div>
-                <div class="sub" style="font-size:24px;">811 validation queries, one at a time.</div>
+                <div class="sub" style="font-size:24px;">1,335  validation queries, one at a time.</div>
               </div>
             </div>
             <div class="item">
@@ -1257,7 +1257,7 @@
         <div class="title-num">IV.</div>
         <div class="title-block">
           <h2 class="h-title">Retrieval cuts hallucination by a quarter.</h2>
-          <p class="h-sub">811 samples. Same model, same prompts, only context differs. Numbers in percentage points.
+          <p class="h-sub">1,335  samples. Same model, same prompts, only context differs. Numbers in percentage points.
           </p>
         </div>
       </div>
@@ -1326,7 +1326,7 @@
         <div class="figure">
           <img src="figures/overall_comparison.png" alt="Overall comparison chart"
             style="max-height: 540px; width: auto;" />
-          <div class="cap">Fig. 1 — Qwen 3.5 9B on CRAG validation (n = 811): LLM-only vs RAG Task 1.</div>
+          <div class="cap">Fig. 1 — Qwen 3.5 9B on CRAG validation (n = 1,335 ): LLM-only vs RAG Task 1.</div>
         </div>
         <div>
           <div class="eyebrow" style="margin-bottom: 18px;">Reading the chart</div>
@@ -1681,7 +1681,7 @@
       <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 56px; margin-top: 40px; align-items: center;">
         <div class="figure">
           <img src="figures/error_analysis_by_domain.png" alt="Error analysis by domain" />
-          <div class="cap">Fig. 5 — Answer distribution by domain (RAG Task 1, n = 811).</div>
+          <div class="cap">Fig. 5 — Answer distribution by domain (RAG Task 1, n = 1,335 ).</div>
         </div>
         <div>
           <div class="eyebrow" style="margin-bottom: 14px;">What stands out</div>
@@ -1735,7 +1735,7 @@
         <div class="title-num">§</div>
         <div class="title-block">
           <h2 class="h-title">Five things we learned.</h2>
-          <p class="h-sub">A short summary of the experimental signal across all 811 samples.</p>
+          <p class="h-sub">A short summary of the experimental signal across all 1,335  samples.</p>
         </div>
       </div>
 
@@ -1839,7 +1839,7 @@
               <div class="n">L4</div>
               <div class="t">
                 <div class="head" style="font-size:28px;">Validation split only</div>
-                <div class="sub" style="font-size:24px;">811 of 4,409 samples. Domain slices have small n.</div>
+                <div class="sub" style="font-size:24px;">1,335  of 4,409 samples. Domain slices have small n.</div>
               </div>
             </div>
           </div>
@@ -1941,11 +1941,11 @@
 
 "Five quick chapters. We'll start with why hallucination matters at all, then introduce the CRAG benchmark itself. Then we'll get into how we measured things — the model, the prompts, the metric. We'll spend the bulk of the time on the actual numbers: overall, by domain, by question type, by dynamism. And we'll close with what this study cannot tell you, and what we'd do next.",
 
-"So why do we even need a benchmark like CRAG? Three reasons. First, coverage — long-tail facts simply aren't in the training set. Second, freshness — a frozen model has a cutoff date, and the world keeps moving. And third, and this is the one I find most important, confidence. Models almost never say 'I don't know.' They give you a wrong answer in the same fluent voice they give you the right one. RAG is supposed to fix all three at once. The question is whether it actually does, and on which kinds of questions.",
+"So why do we even need a benchmark like CRAG? Three reasons. First, coverage  LLMs are trained on finite data, — long-tail facts simply aren't in the training set. Second, freshness — a frozen model has a cutoff date, and the world keeps moving. And third, the most important and dangerous, the confidence. Models almost never say 'I don't know.' They give you a wrong answer in the same fluent voice they give you the right one. This false confidence is what makes hallucinations so harmful in real applications. RAG is supposed to fix all three at once. The question is whether it actually does, and on which kinds of questions.",
 
-"CRAG is built along three axes. Five domains — finance, movie, music, open-domain, and sports. Eight question types, ranging from a one-fact lookup all the way up to false-premise questions where the question itself contains a wrong assumption. And four levels of temporal dynamism — static facts, slow-changing, fast-changing, real-time. That third axis is what makes CRAG different from most QA benchmarks; it's exactly the dimension where parametric memory tends to break. We use the 811-sample validation split, which preserves all three axes.",
+"CRAG is built along three axes. Five domains — finance, movie, music, open-domain, and sports. Eight question types, ranging from a one-fact lookup all the way up to false-premise questions where the question itself contains a wrong assumption. And four levels of temporal dynamism — static facts, slow-changing, fast-changing, real-time. That third axis is what makes CRAG different from most QA benchmarks; it's exactly the dimension where parametric memory tends to break. We use the 1,335 -sample validation split, which preserves all three axes.",
 
-"Three objectives drove our project. One: be a faithful smaller-scale reproduction — same prompts, same metrics, same dataset. Two: do it on consumer hardware. The original paper used Llama 3 70B; we used Qwen 3.5 9B in 4-bit on a single 12-gig GPU. Three: dig into where retrieval helps and where it doesn't, by slicing the 811 results across all the dimensions CRAG gives us.",
+"Three objectives drove our project. One: be a faithful smaller-scale reproduction — same prompts, same metrics, same dataset. Two: do it on consumer hardware. The original paper used Llama 3 70B; we used Qwen 3.5 9B in 4-bit on a single 12-gig GPU. Three: dig into where retrieval helps and where it doesn't, by slicing the 1,335  results across all the dimensions CRAG gives us.",
 
 "Quick setup overview before we get into method details. Qwen 3.5 9B, BitsAndBytes 4-bit NF4 quantization, about 5.9 gigabytes of VRAM after loading. RTX 5070, single GPU, batch size of one. Two settings: LLM-only, where the model has no external context, and RAG Task 1, where we give it up to five web pages from CRAG's stored search results. Same model in both cases — only the context changes. That's important because any difference is attributable to retrieval, not to anything else.",
 
@@ -1955,7 +1955,7 @@
 
 "And here's the metric. CRAG uses three labels per answer. Accurate gets +1, missing — meaning the model abstained — gets 0, and hallucination, a confident wrong answer, gets minus one. Truthfulness is the average across the dataset. Notice what this metric is doing: it explicitly rewards saying nothing over saying something wrong. That makes it a much more honest measure of trustworthiness than raw accuracy. One caveat: we used rule-based plus fuzzy matching for evaluation, while the paper used a dual-LLM judge. We'll come back to that.",
 
-"Now the headline result on all 811 samples. Look at the four numbers. Accuracy basically didn't move — 20.0 percent down to 19.4 percent. But hallucination dropped 15.8 points, from 62.8 down to 47. The missing rate jumped 16.4 points. And truthfulness improved by 15.2 points. Read this carefully: retrieval did not make the model smarter. It made the model more honest. The same answers it used to get wrong, it now declines to attempt. Which, given how the metric is designed, is actually the better outcome.",
+"Now the headline result on all 1,335  samples. Look at the four numbers. Accuracy basically didn't move — 20.0 percent down to 19.4 percent. But hallucination dropped 15.8 points, from 62.8 down to 47. The missing rate jumped 16.4 points. And truthfulness improved by 15.2 points. Read this carefully: retrieval did not make the model smarter. It made the model more honest. The same answers it used to get wrong, it now declines to attempt. Which, given how the metric is designed, is actually the better outcome.",
 
 "Same picture in chart form. Red — hallucination — shrinks substantially. Yellow — missing — grows. Blue — accuracy — stays put. If you take one image away from this presentation, this is probably the one. The shape of the change tells you what RAG is actually doing for a 9B model: it's not adding correct knowledge so much as it is suppressing confident guessing.",
 
